@@ -1,0 +1,446 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Privacy Policy · Octopus Lab</title>
+<meta name="description" content="How the Octopus Lab website handles personal information.">
+<meta property="og:title" content="Privacy Policy · Octopus Lab">
+<meta property="og:description" content="How the Octopus Lab website handles personal information.">
+<meta property="og:image" content="assets/og-image.png">
+<meta property="og:type" content="website">
+<link rel="icon" type="image/png" href="assets/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Octopus Lab · shared styles for all pages
+   Layout: deep-water, dark-first; glowing hero on Home, calm sections on a 1120px column.
+   Accent = the logo's cyan-blue. Light mode follows the visitor's system setting. */
+:root{
+  --abyss:#020c1b;      /* page ground */
+  --deep:#06172e;       /* raised panels */
+  --current:#0c2443;    /* borders, lines */
+  --line:#1d4170;       /* diagram connectors */
+  --foam:#e6f0fb;       /* main text */
+  --mist:#93a9c4;       /* secondary text */
+  --glow:#5cb6ff;       /* accent */
+  --glow-soft:rgba(92,182,255,.14);
+  --ink-on-glow:#021327;
+  --alert:#ffd27a;      /* deadline */
+  --inh:rgba(95,179,230,.16); --inh-b:#5fb3e6; --fac:rgba(242,160,123,.16); --fac-b:#f2a07b; --shm:rgba(141,155,176,.12); --shm-b:#8d9bb0; --sfa:rgba(240,210,122,.13); --sfa-b:#e8c870;
+  --display:"Jost","Futura","Century Gothic",system-ui,sans-serif;
+  --body:"IBM Plex Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,"SFMono-Regular",Menlo,monospace;
+  --w:1120px;
+  color-scheme:dark;
+}
+@media (prefers-color-scheme: light){
+  :root:not([data-theme="dark"]){
+    --abyss:#f6f9fd; --deep:#ffffff; --current:#d6e2f0; --line:#9fbcdc; --foam:#0a1f3a; --mist:#4a6280;
+    --glow:#1a73d1; --glow-soft:rgba(26,115,209,.09); --ink-on-glow:#ffffff; --alert:#9a5b00;
+    --inh:#d3ecf9; --inh-b:#7fbfe3; --fac:#f9d3bf; --fac-b:#e39a75; --shm:#f1f2f4; --shm-b:#c3c8cf; --sfa:#fdf3d4; --sfa-b:#e2c977;
+    color-scheme:light;
+  }
+}
+:root[data-theme="light"]{
+  --abyss:#f6f9fd; --deep:#ffffff; --current:#d6e2f0; --line:#9fbcdc; --foam:#0a1f3a; --mist:#4a6280;
+  --glow:#1a73d1; --glow-soft:rgba(26,115,209,.09); --ink-on-glow:#ffffff; --alert:#9a5b00;
+  --inh:#d3ecf9; --inh-b:#7fbfe3; --fac:#f9d3bf; --fac-b:#e39a75; --shm:#f1f2f4; --shm-b:#c3c8cf; --sfa:#fdf3d4; --sfa-b:#e2c977;
+  color-scheme:light;
+}
+
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}}
+body{margin:0;background:var(--abyss);color:var(--foam);font:400 17px/1.65 var(--body);-webkit-font-smoothing:antialiased}
+img{max-width:100%;height:auto;display:block}
+a{color:var(--glow);text-underline-offset:3px}
+a:focus-visible,button:focus-visible{outline:2px solid var(--glow);outline-offset:3px;border-radius:4px}
+.wrap{max-width:var(--w);margin:0 auto;padding-inline:clamp(16px,4vw,32px)}
+
+/* theme-dependent logo swap */
+.logo-light{display:none}
+@media (prefers-color-scheme: light){:root:not([data-theme="dark"]) .logo-dark{display:none}:root:not([data-theme="dark"]) .logo-light{display:block}}
+:root[data-theme="light"] .logo-dark{display:none}
+:root[data-theme="light"] .logo-light{display:block}
+
+/* type */
+h1,h2,h3{font-family:var(--display);font-weight:400;line-height:1.12;text-wrap:balance;margin:0}
+h1{font-size:clamp(2.4rem,5.6vw,4rem);font-weight:300;letter-spacing:-.015em}
+h2{font-size:clamp(1.9rem,4vw,2.7rem);letter-spacing:-.01em}
+h3{font-size:1.3rem;font-weight:500}
+p{margin:0}
+.eyebrow{font:500 .78rem/1.3 var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--glow)}
+.lede{font-size:1.15rem;color:var(--mist);max-width:62ch}
+.muted{color:var(--mist)}
+.prose{display:grid;gap:16px;max-width:68ch}
+
+/* nav */
+header.nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:color-mix(in srgb,var(--abyss) 82%,transparent);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid var(--current)}
+.nav .wrap{display:flex;align-items:center;gap:24px;min-height:64px}
+.brand{display:flex;align-items:center;gap:10px;white-space:nowrap;text-decoration:none;color:var(--foam);font:500 1.05rem/1 var(--display);letter-spacing:.22em;text-transform:uppercase}
+.brand img{height:34px;width:auto}
+.brand span b{font-weight:500;color:var(--glow)}
+.nav ul{display:flex;gap:6px;list-style:none;margin:0 0 0 auto;padding:0}
+.nav ul a{display:block;padding:8px 12px;border-radius:999px;color:var(--mist);text-decoration:none;font-size:.93rem;white-space:nowrap}
+.nav ul a:hover{color:var(--foam)}
+.nav ul a[aria-current="page"]{color:var(--foam);background:var(--glow-soft)}
+.nav ul a.join-link{background:var(--glow);color:var(--ink-on-glow);font-weight:600}
+@media (max-width:760px){
+  .nav .wrap{flex-wrap:wrap;gap:4px 16px;padding-block:10px}
+  .nav ul{margin:0;width:100%;overflow-x:auto;padding-bottom:2px}
+  .nav ul a{padding:6px 10px;font-size:.88rem}
+}
+
+/* page header (inner pages) */
+.page-head{border-bottom:1px solid var(--current);padding-block:clamp(48px,7vw,88px)}
+.page-head .wrap{display:grid;gap:18px}
+
+/* hero (home) */
+.hero{position:relative;overflow:hidden;border-bottom:1px solid var(--current)}
+.hero canvas{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
+.hero .wrap{position:relative;display:grid;grid-template-columns:1.1fr .9fr;gap:48px;align-items:center;padding-block:clamp(56px,9vw,112px)}
+.hero h1{font-size:clamp(2.6rem,6.4vw,4.6rem)}
+.hero h1 em{font-style:normal;color:var(--glow);font-weight:400}
+.hero .copy{display:grid;gap:22px;min-width:0}
+.hero .logo-box{justify-self:center;max-width:420px;width:100%}
+.hero .logo-box img{filter:drop-shadow(0 0 28px var(--glow-soft))}
+@media (max-width:860px){
+  .hero .wrap{grid-template-columns:1fr;gap:16px;padding-block:24px 56px}
+  .hero .logo-box{order:-1;max-width:230px}
+  .hero .logo-box img{filter:none}
+}
+@media (max-width:760px){.brand img{height:42px}}
+
+.btns{display:flex;flex-wrap:wrap;gap:12px}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:12px 20px;border-radius:999px;font-weight:600;font-size:.95rem;text-decoration:none;border:1px solid var(--glow);transition:transform .15s,background .15s}
+.btn:hover{transform:translateY(-1px)}
+.btn.primary{background:var(--glow);color:var(--ink-on-glow)}
+.btn.ghost{color:var(--glow);background:transparent}
+.btn.ghost:hover{background:var(--glow-soft)}
+.recruit{display:flex;gap:12px;align-items:center;font-size:.95rem;padding:10px 16px;border:1px solid var(--current);border-radius:12px;background:var(--deep);width:fit-content;max-width:100%;color:var(--foam);text-decoration:none}
+.recruit .dot{width:9px;height:9px;border-radius:50%;background:var(--alert);box-shadow:0 0 0 4px color-mix(in srgb,var(--alert) 25%,transparent);flex:none}
+.recruit strong{color:var(--alert);font-weight:600}
+
+/* sections */
+section{padding-block:clamp(56px,8vw,100px)}
+section + section{border-top:1px solid var(--current)}
+.head{display:grid;gap:14px;margin-bottom:40px;max-width:760px}
+
+/* home: about */
+.about{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start}
+.about > div{min-width:0}
+.questions{list-style:none;margin:0;padding:0;display:grid;gap:12px}
+.questions li{padding:16px 18px;border:1px solid var(--current);border-radius:12px;background:var(--deep);font-family:var(--display);font-size:1.12rem;line-height:1.35}
+@media (max-width:820px){.about{grid-template-columns:1fr;gap:32px}}
+
+/* home: metaphor */
+.metaphor{display:grid;grid-template-columns:repeat(3,1fr);border:1px solid var(--current);border-radius:18px;overflow:hidden;background:var(--deep)}
+.metaphor article{padding:28px 26px;display:grid;gap:10px;align-content:start;min-width:0}
+.metaphor article + article{border-left:1px solid var(--current)}
+.metaphor .octo{font:400 .82rem/1.5 var(--mono);color:var(--mist);padding:10px 12px;border-radius:8px;background:var(--glow-soft)}
+.metaphor .octo b{color:var(--glow);font-weight:500}
+@media (max-width:860px){.metaphor{grid-template-columns:1fr}.metaphor article + article{border-left:0;border-top:1px solid var(--current)}}
+
+/* home: next-step cards */
+.next{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.next a{display:grid;gap:8px;align-content:start;padding:24px;border:1px solid var(--current);border-radius:14px;background:var(--deep);color:var(--foam);text-decoration:none;transition:border-color .15s}
+.next a:hover{border-color:var(--glow)}
+.next a span{font:500 .72rem/1 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--glow)}
+.next a p{color:var(--mist);font-size:.95rem}
+@media (max-width:820px){.next{grid-template-columns:1fr}}
+
+/* research areas */
+.areas{display:grid;gap:20px}
+.area{display:grid;grid-template-columns:220px 1fr;gap:32px;padding:30px;border:1px solid var(--current);border-radius:18px;background:var(--deep)}
+.area > *{min-width:0}
+.area .num{font:500 .75rem/1 var(--mono);letter-spacing:.12em;color:var(--mist);text-transform:uppercase;margin-bottom:12px}
+.area dl{display:grid;grid-template-columns:auto 1fr;gap:12px 20px;margin:0}
+.area dt{font:500 .74rem/1.9 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--glow)}
+.area dd{margin:0;color:var(--mist)}
+.chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:14px}
+.chips span{font:500 .74rem/1 var(--mono);padding:6px 9px;border-radius:6px;background:var(--glow-soft);color:var(--glow)}
+@media (max-width:760px){.area{grid-template-columns:1fr;gap:16px;padding:22px}.area dl{grid-template-columns:1fr;gap:2px}.area dd{margin-bottom:10px}}
+
+/* ATLAS */
+.atlas{display:grid;grid-template-columns:.85fr 1.15fr;gap:48px;align-items:start}
+.atlas > div{min-width:0}
+.status{display:inline-flex;align-items:center;gap:8px;font:500 .78rem/1 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--glow);border:1px solid var(--glow);padding:7px 12px;border-radius:999px}
+.status::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--glow)}
+.facts{display:grid;grid-template-columns:auto 1fr;gap:10px 18px;margin:24px 0 0;font-size:.95rem}
+.facts dt{font:500 .76rem/1.9 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--mist)}
+.facts dd{margin:0}
+.note{font-size:.88rem;color:var(--mist)}
+@media (max-width:900px){.atlas{grid-template-columns:1fr}}
+
+/* ATLAS flow diagram (CONSORT-style) */
+.flow{border:1px solid var(--current);border-radius:18px;background:var(--deep);padding:24px 20px;display:grid;justify-items:center;--gap:30px}
+.flow figcaption{justify-self:start;font:500 .74rem/1 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--mist);margin-bottom:18px}
+.fbox{position:relative;width:min(100%,420px);padding:12px 16px;border:1px solid var(--line);border-radius:10px;background:var(--abyss);text-align:center;font-size:.9rem;line-height:1.45}
+.fbox b{display:block;font-weight:600}
+.fbox small{display:block;color:var(--mist);font-size:.8rem}
+.fbox .t{display:inline-block;font:500 .7rem/1 var(--mono);color:var(--glow);letter-spacing:.06em;margin-bottom:4px}
+.fbox.key{border-color:var(--glow);background:var(--glow-soft)}
+.down{width:2px;height:var(--gap);background:var(--line);position:relative}
+.down::after{content:"";position:absolute;left:50%;bottom:-1px;transform:translateX(-50%);border:6px solid transparent;border-top-color:var(--line);border-bottom:0}
+.split,.merge{position:relative;width:100%;display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.split{padding-top:var(--gap)}
+.split::before{content:"";position:absolute;top:0;left:16.66%;right:16.66%;height:2px;background:var(--line)}
+.split .fbox{width:100%}
+.split .fbox::before{content:"";position:absolute;left:50%;top:calc(-1 * var(--gap));width:2px;height:var(--gap);background:var(--line);transform:translateX(-50%)}
+.split .fbox::after{content:"";position:absolute;left:50%;top:-7px;transform:translateX(-50%);border:6px solid transparent;border-top-color:var(--line);border-bottom:0}
+.merge{height:var(--gap)}
+.merge::before{content:"";position:absolute;bottom:0;left:16.66%;right:16.66%;height:2px;background:var(--line)}
+.merge i{justify-self:center;width:2px;height:100%;background:var(--line)}
+.arm-tag{display:inline-block;margin-top:6px;font:500 .72rem/1 var(--mono);padding:5px 7px;border-radius:6px;background:var(--glow-soft);color:var(--glow)}
+.band{width:100%;margin:0;padding:10px 12px;border:1px dashed var(--line);border-radius:10px;text-align:center;font-size:.85rem;color:var(--mist)}
+.band b{color:var(--foam);font-weight:600}
+@media (max-width:600px){
+  .flow{padding:20px 12px}
+  .split,.merge{gap:6px}
+  .split .fbox{padding:10px 6px;font-size:.8rem}
+  .split .fbox small{font-size:.72rem}
+  .arm-tag{font-size:.64rem;padding:4px 5px}
+}
+
+/* join */
+.join{display:grid;grid-template-columns:1.15fr .85fr;gap:40px;align-items:start}
+.join > div{min-width:0}
+.join .body{display:grid;gap:26px}
+.join ul{margin:0;padding-left:1.1em;color:var(--mist)}
+.join li{margin-bottom:6px}
+.join li b{color:var(--foam);font-weight:500}
+.deadline{border:1px solid var(--alert);border-radius:18px;padding:28px;display:grid;gap:14px;background:var(--deep)}
+.deadline .big{font:300 clamp(2.6rem,6vw,3.6rem)/1 var(--display);color:var(--alert);font-variant-numeric:tabular-nums}
+.deadline .big small{font-size:1rem;color:var(--mist);margin-left:6px}
+.deadline ol{margin:0;padding-left:1.2em;color:var(--mist);font-size:.95rem}
+.deadline ol li{margin-bottom:6px}
+.deadline ol b{color:var(--foam);font-weight:500}
+@media (max-width:860px){.join{grid-template-columns:1fr}}
+
+/* people */
+.pi{display:grid;grid-template-columns:auto 1fr;gap:40px;align-items:start}
+.pi > div{min-width:0}
+.pi .mark{width:190px;padding:20px;border:1px solid var(--current);border-radius:50%;aspect-ratio:1;display:grid;place-items:center;background:var(--deep);max-width:100%}
+.pi .bio{display:grid;gap:16px;max-width:68ch}
+.pi .role{font:500 .82rem/1.5 var(--mono);color:var(--glow);letter-spacing:.04em}
+.interests{display:flex;flex-wrap:wrap;gap:8px}
+.interests span{padding:7px 12px;border:1px solid var(--current);border-radius:999px;font-size:.88rem;color:var(--foam)}
+@media (max-width:640px){.pi{grid-template-columns:1fr}.pi .mark{width:130px}}
+
+/* contact pieces */
+.links{display:flex;flex-wrap:wrap;gap:10px}
+.links a{display:inline-flex;align-items:center;gap:8px;padding:9px 14px;border:1px solid var(--current);border-radius:999px;color:var(--foam);text-decoration:none;font-size:.92rem;background:var(--deep)}
+.links a:hover{border-color:var(--glow);color:var(--glow)}
+.links svg{width:16px;height:16px;flex:none}
+.links a[href="#todo"]{display:none} /* hidden until a real link is added */
+.email{display:flex;flex-wrap:wrap;align-items:center;gap:10px}
+.email code{font:500 .95rem/1.4 var(--mono);color:var(--foam);background:var(--glow-soft);padding:8px 12px;border-radius:8px;word-break:break-all}
+.email button{font:600 .85rem/1 var(--body);padding:9px 14px;border-radius:999px;border:1px solid var(--glow);background:transparent;color:var(--glow);cursor:pointer}
+
+footer{border-top:1px solid var(--current);padding-block:36px;font-size:.88rem;color:var(--mist)}
+footer .wrap{display:flex;flex-wrap:wrap;gap:16px 24px;justify-content:space-between;align-items:center}
+footer a{color:var(--mist)}
+
+/* ATLAS flow: arm colors follow the original study figure */
+.fbox.start{display:grid;justify-items:center;gap:2px}
+.fbox .ppl{width:46px;height:28px;color:var(--glow);margin-bottom:4px}
+.fbox.rand{display:flex;align-items:center;justify-content:center;gap:12px;text-align:left}
+.fbox .die{width:30px;height:30px;color:var(--glow);flex:none}
+.fbox.inh{background:var(--inh);border-color:var(--inh-b)}
+.fbox.fac{background:var(--fac);border-color:var(--fac-b)}
+.fbox.sham{background:var(--shm);border-color:var(--shm-b)}
+.split .fbox small{margin-top:2px}
+.band.sfa{background:var(--sfa);border:1px solid var(--sfa-b);color:var(--foam)}
+.legend{margin-top:18px;font-size:.76rem;line-height:1.5;color:var(--mist);text-align:center;max-width:52ch}
+
+/* home: community */
+.community{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start}
+.community > *{min-width:0}
+.pillars{list-style:none;margin:0;padding:0;display:grid;gap:12px}
+.pillars li{display:grid;gap:4px;padding:16px 18px;border:1px solid var(--current);border-radius:12px;background:var(--deep)}
+.pillars b{font-family:var(--display);font-weight:500;font-size:1.1rem}
+.pillars span{color:var(--mist);font-size:.95rem}
+@media (max-width:820px){.community{grid-template-columns:1fr;gap:28px}}
+
+/* home: octopus story */
+.story{display:grid;grid-template-columns:1fr 1fr;border:1px solid var(--current);border-radius:18px;overflow:hidden;background:var(--deep)}
+.story article{display:grid;gap:14px;align-content:start;padding:30px 30px 32px;min-width:0}
+.story article + article{border-left:1px solid var(--current)}
+.story .tag{font:500 .76rem/1 var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--glow)}
+.story article p:not(.tag){color:var(--mist)}
+.mission{display:grid;gap:16px;max-width:760px;margin-top:56px}
+.mission-text{font:300 clamp(1.35rem,2.6vw,1.75rem)/1.4 var(--display);color:var(--foam)}
+.closing{margin-top:12px;padding-top:24px;border-top:1px solid var(--current);font:400 clamp(1.25rem,2.4vw,1.6rem)/1.4 var(--display);color:var(--foam);text-wrap:balance}
+@media (max-width:820px){.story{grid-template-columns:1fr}.story article + article{border-left:0;border-top:1px solid var(--current)}.story article{padding:24px 22px}}
+
+/* home: lab credo */
+.credo{position:relative;margin:64px 0 0;padding:clamp(36px,6vw,64px) clamp(20px,5vw,64px);border:1px solid var(--current);border-radius:22px;background:radial-gradient(120% 140% at 50% 0%,var(--glow-soft),transparent 70%),var(--deep);text-align:center;display:grid;gap:20px;justify-items:center}
+.credo p{font:300 clamp(1.6rem,3.6vw,2.6rem)/1.3 var(--display);color:var(--foam);max-width:26ch;text-wrap:balance}
+.credo em{font-style:normal;color:var(--glow);font-weight:400}
+.credo cite{font:500 .76rem/1 var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--mist);font-style:normal}
+
+/* people: headshot (falls back to the logo until assets/headshot.jpg exists) */
+.pi .mark{overflow:hidden}
+.pi .mark .headshot{display:none}
+.pi .mark.has-photo{padding:0;border-width:2px;border-color:var(--glow)}
+.pi .mark.has-photo .headshot{display:block;width:100%;height:100%;object-fit:cover;object-position:50% 25%}
+.pi .mark.has-photo .logo-dark,.pi .mark.has-photo .logo-light{display:none!important}
+
+/* privacy policy */
+.policy{display:grid;gap:36px;max-width:72ch}
+.policy article{display:grid;gap:12px}
+.policy h2{font-size:clamp(1.35rem,2.4vw,1.7rem)}
+.policy p,.policy li{color:var(--mist)}
+.policy ul{margin:0;padding-left:1.1em;display:grid;gap:8px}
+.policy li b{color:var(--foam);font-weight:500}
+
+</style>
+</head>
+<body>
+<header class="nav">
+  <div class="wrap">
+    <a class="brand" href="index.html" aria-label="Octopus Lab home">
+      <img class="logo-dark" src="assets/mark-dark.png" alt="">
+      <img class="logo-light" src="assets/mark-light.png" alt="">
+      <span>Octo<b>pus</b> Lab</span>
+    </a>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="research.html">Research</a></li>
+      <li><a href="people.html">People</a></li>
+      <li><a href="join.html" class="join-link">Join the Lab</a></li>
+    </ul>
+  </div>
+</header>
+
+<main>
+<div class="page-head">
+  <div class="wrap">
+    <p class="eyebrow">Privacy policy</p>
+    <h1>How we handle your information</h1>
+    <p class="lede">This website does not use cookies, analytics, advertising or online forms. We do not collect personal information through the site itself.</p>
+    <p class="note">Last updated: October 3, 2026</p>
+  </div>
+</div>
+
+<section>
+  <div class="wrap policy">
+    <article>
+      <h2>Who we are</h2>
+      <p>This website belongs to Octopus Lab, led by Dr. Sophie Arheix-Parras, Department of Speech, Language, and Hearing, School of Behavioral and Brain Sciences, The University of Texas at Dallas. For any question about this policy, contact <a href="mailto:sophie.arheix-parras@sc.edu">sophie.arheix-parras@sc.edu</a>.</p>
+    </article>
+    <article>
+      <h2>Information collected automatically</h2>
+      <p>When you visit a website, your browser shares basic technical information such as your IP address, browser type and the page requested. On this site, that information goes to two services, not to the lab:</p>
+      <ul>
+        <li><b>GitHub Pages</b> hosts the site and may log this information for security and service operation. See the <a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement" rel="noopener">GitHub Privacy Statement</a>. GitHub's Data Protection Officer can be reached at dpo@github.com.</li>
+        <li><b>Google Fonts</b> provides the typefaces. Your browser requests them from Google's servers. See the <a href="https://developers.google.com/fonts/faq/privacy" rel="noopener">Google Fonts privacy FAQ</a>.</li>
+      </ul>
+      <p>We do not have access to these logs and do not use them to identify visitors.</p>
+    </article>
+    <article>
+      <h2>Information you send us</h2>
+      <p>If you email us, for example as a prospective student, a possible study participant or a member of our community, we receive your email address and anything you choose to include. We use it only to answer you and, if you ask, to keep you informed. We do not sell or share it with third parties. You can ask us at any time to delete your messages and contact details.</p>
+    </article>
+    <article>
+      <h2>Research participants</h2>
+      <p>Taking part in a research study never happens through this website. Each study follows a protocol approved by an Institutional Review Board (IRB) and a written informed consent process that explains how study data are collected, protected and stored. Please do not send medical or health information by email; we will discuss it with you through the appropriate study procedures.</p>
+    </article>
+    <article>
+      <h2>Links to other websites</h2>
+      <p>This site links to other websites, such as Google Scholar, LinkedIn, ORCID and UT Dallas pages. Their own privacy policies apply when you visit them.</p>
+    </article>
+    <article>
+      <h2>University policy</h2>
+      <p>As part of The University of Texas at Dallas, the lab also follows the university's privacy practices. See <a href="https://www.utdallas.edu/privacy/" rel="noopener">Privacy at UT Dallas</a>.</p>
+    </article>
+    <article>
+      <h2>Changes to this policy</h2>
+      <p>If the website changes, for example by adding a form or a newsletter, we will update this page and its date.</p>
+    </article>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>© <span class="yr">2026</span> Octopus Lab · School of Behavioral and Brain Sciences, The University of Texas at Dallas · <a href="privacy.html">Privacy policy</a></span>
+    <nav class="links" aria-label="Contact and profiles">
+      <a href="mailto:sophie.arheix-parras@sc.edu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>Email</a>
+      <a href="https://scholar.google.com/citations?user=YTcyItwAAAAJ" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M2 9l10-5 10 5-10 5z"/><path d="M6 11v5c3 2 9 2 12 0v-5"/></svg>Google Scholar</a>
+      <a href="https://www.linkedin.com/in/sophie-arheix-parras/" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M8 10v7M8 7v.01M12 17v-4a2 2 0 0 1 4 0v4M12 10v7"/></svg>LinkedIn</a>
+      <!-- Replace #todo with your Instagram URL -->
+      <a href="#todo" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><path d="M17.5 6.5v.01"/></svg>Instagram</a>
+      <!-- Replace #todo with your Facebook URL -->
+      <a href="#todo" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M15 8h-1.5A1.5 1.5 0 0 0 12 9.5V21M9.5 13H15"/></svg>Facebook</a>
+    </nav>
+  </div>
+</footer>
+<script>
+// Octopus Lab · shared scripts
+
+// footer year
+document.querySelectorAll('.yr').forEach(function(el){ el.textContent = new Date().getFullYear(); });
+
+// countdown to the PhD deadline (Nov 15, 2026, end of day Central)
+(function(){
+  var el = document.getElementById('countdown'); if (!el) return;
+  var end = new Date('2026-11-16T05:59:00Z');
+  var days = Math.ceil((end - new Date()) / 864e5);
+  if (days > 1) el.innerHTML = days + '<small>days left · Nov 15, 2026</small>';
+  else if (days === 1) el.innerHTML = 'Today<small>Nov 15, 2026</small>';
+})();
+
+// copy email
+document.querySelectorAll('[data-copy]').forEach(function(b){
+  b.addEventListener('click', function(){
+    var target = document.getElementById(b.getAttribute('data-copy')), t = target.textContent;
+    var done = function(){ b.textContent = 'Copied'; setTimeout(function(){ b.textContent = 'Copy'; }, 1800); };
+    var fallback = function(){ var r = document.createRange(); r.selectNodeContents(target); var s = getSelection(); s.removeAllRanges(); s.addRange(r); b.textContent = 'Selected'; };
+    if (navigator.clipboard) navigator.clipboard.writeText(t).then(done, fallback); else fallback();
+  });
+});
+
+// home hero: signals travelling along curved "arms"
+(function(){
+  var c = document.getElementById('arms'); if (!c) return;
+  var ctx = c.getContext('2d'), arms = [], pulses = [], W, H, dpr;
+  var reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function color(){ return getComputedStyle(document.documentElement).getPropertyValue('--glow').trim() || '#5cb6ff'; }
+  function build(){
+    dpr = Math.min(devicePixelRatio || 1, 2);
+    W = c.clientWidth; H = c.clientHeight; c.width = W*dpr; c.height = H*dpr; ctx.setTransform(dpr,0,0,dpr,0,0);
+    arms = []; var ox = W*0.72, oy = H*0.42, n = 10;
+    // start the arms from the visible logo, wherever the layout puts it
+    var logo = Array.prototype.find.call(document.querySelectorAll('.hero .logo-box img'), function(i){ return i.offsetWidth; });
+    if (logo) { var r = logo.getBoundingClientRect(), h = c.getBoundingClientRect(); ox = r.left - h.left + r.width/2; oy = r.top - h.top + r.height*0.42; }
+    var narrow = W < 860;
+    for (var i=0;i<n;i++){
+      var a = narrow ? Math.PI*(-0.05 + 1.1*i/(n-1)) : Math.PI*(0.15 + 0.7*i/(n-1)), len = narrow ? W*0.9 : Math.max(W,H)*0.75, side = Math.cos(a) > 0 ? 1 : -1;
+      var ex = ox + Math.cos(a)*len, ey = oy + Math.sin(a)*len*0.6;
+      arms.push([ox,oy, ox+Math.cos(a)*len*0.3, oy+Math.sin(a)*len*0.5, ex - side*len*0.15, ey - len*0.25, ex, ey]);
+    }
+  }
+  function pt(b,t){ var u=1-t; return [u*u*u*b[0]+3*u*u*t*b[2]+3*u*t*t*b[4]+t*t*t*b[6], u*u*u*b[1]+3*u*u*t*b[3]+3*u*t*t*b[5]+t*t*t*b[7]]; }
+  function draw(){
+    ctx.clearRect(0,0,W,H); var col = color();
+    ctx.strokeStyle = col; ctx.globalAlpha = 0.09; ctx.lineWidth = 1.2;
+    arms.forEach(function(b){ ctx.beginPath(); ctx.moveTo(b[0],b[1]); ctx.bezierCurveTo(b[2],b[3],b[4],b[5],b[6],b[7]); ctx.stroke(); });
+    ctx.fillStyle = col;
+    pulses.forEach(function(p){ var q = pt(arms[p.a], p.t); ctx.globalAlpha = 0.55*(1-p.t); ctx.beginPath(); ctx.arc(q[0],q[1],2.4,0,7); ctx.fill(); ctx.globalAlpha = 0.12*(1-p.t); ctx.beginPath(); ctx.arc(q[0],q[1],9,0,7); ctx.fill(); });
+    ctx.globalAlpha = 1;
+  }
+  function tick(){
+    if (Math.random() < 0.06 && pulses.length < 24) pulses.push({a: Math.floor(Math.random()*arms.length), t: 0, v: 0.0025 + Math.random()*0.003});
+    pulses.forEach(function(p){ p.t += p.v; }); pulses = pulses.filter(function(p){ return p.t < 1; });
+    draw(); requestAnimationFrame(tick);
+  }
+  build(); addEventListener('resize', build);
+  if (reduce) { for (var i=0;i<arms.length;i++) pulses.push({a:i,t:0.2+0.06*i,v:0}); draw(); } else tick();
+})();
+
+</script>
+</body>
+</html>
