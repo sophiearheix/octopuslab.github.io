@@ -295,7 +295,8 @@ footer a{color:var(--mist)}
 <section>
   <div class="wrap pi">
     <div class="mark">
-      <!-- When you have a headshot, replace these two images with: <img src="assets/headshot.jpg" alt="Sophie Arheix-Parras"> -->
+      <!-- Photo: upload your picture to the assets folder as headshot.jpg. Until then, the logo shows. -->
+      <img class="headshot" src="assets/headshot.jpg" alt="Sophie Arheix-Parras" onload="this.parentNode.classList.add('has-photo')" onerror="this.remove()">
       <img class="logo-dark" src="assets/mark-dark.png" alt="">
       <img class="logo-light" src="assets/mark-light.png" alt="">
     </div>
